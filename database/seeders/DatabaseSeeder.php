@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Product;
 
 
 class DatabaseSeeder extends Seeder
@@ -35,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'Lainnya',
         ];
         foreach ($categories as $category) {
-            \App\Models\Category::create([
+            Category::create([
                 'name' => $category,
             ]);
         }
@@ -62,7 +64,7 @@ class DatabaseSeeder extends Seeder
         ];
         for ($i = 0; $i < 100; $i++) {
             $price = $faker->randomElement($prices);
-            \App\Models\Product::create([
+            Product::create([
                 'name' => $faker->words(2, true),
                 'selling_price' => $price + ($price * 0.3),
                 'purchase_price' => $price,
